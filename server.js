@@ -14,7 +14,6 @@ const person_route = require('./Routes/Person_routes')
 app.use('/person', person_route);
 
 app.get('/hello', (req, res) => {
-    console.log("Hello");
     res.send("Hello Piyush")
 })
 
@@ -23,5 +22,6 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3001, () => {
+    mongoConnection();
     console.log("Server is active");
 })
