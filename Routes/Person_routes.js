@@ -1,7 +1,5 @@
 const express = require('express')
 const router = express.Router();
-
-// connection establish with mongodb server to do curd operation
 const person_Model = require('../Models/Person');
 
 router.post('/', async (req, res) => {
