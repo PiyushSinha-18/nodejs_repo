@@ -1,5 +1,6 @@
-const mongoose = require('mongoose')
-const mongo_URL = "mongodb://127.0.0.1:27017/Personal_db";
+const mongoose = require('mongoose');
+
+const mongo_URL = process.env.local_mongo_URL;
 
 // const mongo_Connection = mongoose.connect(mongo_URL).then(() => {
 //     console.log("Connection establish ")
@@ -7,15 +8,12 @@ const mongo_URL = "mongodb://127.0.0.1:27017/Personal_db";
 //     console.log("Connection failed ", e)
 // })
 
-const mongo_Connection = () => {
+const mongo_Connection = async () => {
     try {
-        const connection = mongoose.connect(mongo_URL).then(() => {
-            console.log("Connection establish ")
-        }).catch((e) => {
-            console.log("Connection failed ", e)
-        })
+        await mongoose.connect(mongo_URL);
+        console.log("Connection establish successfully ")
     } catch (error) {
-        console.log("Server error occured please try again later " + error)
+        console.log("Server error occured please try again later ")
     }
 }
 
